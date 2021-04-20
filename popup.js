@@ -125,6 +125,8 @@ function toggleLoading(element) {
 
 */
 
+var notificationTimeout;
+
 function notificationBox(message, color, icon, time) {
 
     if (color == "red") {
@@ -138,12 +140,15 @@ function notificationBox(message, color, icon, time) {
         $("#notificationBox").attr('class', 'greenNotification');
 
     }
+	
+	clearTimeout(notificationTimeout);
+	$("#notificationBox").slideUp('fast');
 
     $("#notificationIcon").html('<i class="fa fa-' + icon + '"></i>');
     $("#notificationText").text(message);
     $("#notificationBox").slideDown('fast');
 
-    setTimeout(function() {
+    notificationTimeout = setTimeout(function() {
 
         $("#notificationBox").slideUp('fast');
 
