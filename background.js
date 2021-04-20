@@ -2,7 +2,7 @@ chrome.runtime.onInstalled.addListener(function() {
     chrome.contextMenus.create({
         id: "pasteEmail",
         title: "Paste TemporaryMail",
-        contexts: ["all"],
+        contexts: ["editable"],
     });
 });
 
